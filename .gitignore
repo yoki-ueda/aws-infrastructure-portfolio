@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# SSH private keys
+*.pem
+
+# Environment variables
+.env
+
+# Database credentials
+db.php
