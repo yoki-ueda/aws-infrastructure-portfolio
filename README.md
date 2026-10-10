@@ -11,7 +11,7 @@ AWS上にALB、EC2、RDSを使用したWebインフラを構築し、
 
 ## 実施内容
 
-- VPC内にPublic Subnet / Private DB Subnetを2つのAvailability Zoneへ構成
+- VPC内にPublic Subnet / Private DB Subnetを2つのAvailability Zoneに構成
 - Amazon Linux 2023 EC2を2台構築し、Apache / PHPをセットアップ
 - Application Load Balancerによる負荷分散とヘルスチェックを構成
 - Amazon RDS for MySQLをPrivate DB Subnetに配置し、Webサーバーからの接続経路を構成
