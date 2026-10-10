@@ -30,23 +30,20 @@ AWS上にALB、EC2、RDSを使用したWebインフラを構築し、
 
 障害試験の詳細は [`troubleshooting.md`](docs/troubleshooting.md) を参照。
 
-## 成果物
+## 実装・検証資料
 
-- [`architecture.png`](docs/architecture.png) - AWS Webインフラ構成図
 - [`design.md`](docs/design.md) - 構成・設計理由
 - [`security.md`](docs/security.md) - Security Group / IAMのセキュリティ設計
 - [`monitoring.md`](docs/monitoring.md) - CloudWatch / SNSの監視設計
 - [`troubleshooting.md`](docs/troubleshooting.md) - 障害試験・切り分け・復旧の詳細
-- [`cloudwatch-agent-web1.json`](config/cloudwatch-agent-web1.json) - Web-1 CloudWatch Agent設定
-- [`cloudwatch-agent-web2.json`](config/cloudwatch-agent-web2.json) - Web-2 CloudWatch Agent設定
-- [`index-web1.html`](web/index-web1.html) - Web-1確認用ページ
-- [`index-web2.html`](web/index-web2.html) - Web-2確認用ページ
 - [`posts.php`](web/posts.php) - RDS MySQLからデータを取得するPHPページ
 
 ## 動作確認
 
-- ALB経由でWeb-1 / Web-2へ通信が振り分けられることを確認
-- WebサーバーからRDS MySQLへの接続とデータ取得を確認
-- CloudWatch AlarmからSNS経由でメール通知されることを確認
-- Apache停止時に異常なWebサーバーがALBから切り離され、正常なWebサーバーへ通信が継続されることを確認
-- 障害復旧後にALB / CloudWatch Alarmが正常状態へ戻ることを確認
+ALBによる負荷分散、CloudWatch / SNSによる異常通知、Apache障害時のフェイルオーバーを確認しました。
+
+![ALB正常稼働](screenshots/01-alb-healthy.png)
+
+![CloudWatch Alarm / SNS通知](screenshots/04-cpu-alarm-notification.png)
+
+![ALBフェイルオーバー](screenshots/05-alb-failover.png)
