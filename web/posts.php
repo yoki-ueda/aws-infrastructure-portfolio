@@ -1,5 +1,7 @@
 <?php
 
+// RDS MySQLへ接続し、postsテーブルのデータを取得・表示するPHPページ
+
 $config = require '/var/www/config/db.php';
 
 $db = new mysqli(
